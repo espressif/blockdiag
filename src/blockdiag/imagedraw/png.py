@@ -290,7 +290,7 @@ class ImageDrawExBase(base.ImageDraw):
         if ttfont is None:
             if hasattr(self.draw, 'textbbox'):
                 left, top, right, bottom = self.draw.textbbox((0, 0), string)
-                size = (right - left, bottom - top)
+                size = (right - left, bottom)
             else:
                 size = self.draw.textsize(string, font=None)
 
@@ -300,7 +300,7 @@ class ImageDrawExBase(base.ImageDraw):
         else:
             if hasattr(ttfont, 'getbbox'):
                 left, top, right, bottom = ttfont.getbbox(string)
-                size = Size(right - left, bottom - top)
+                size = Size(right - left, bottom)
             else:
                 size = Size(*ttfont.getsize(string))
 
@@ -316,7 +316,7 @@ class ImageDrawExBase(base.ImageDraw):
             else:
                 if hasattr(self.draw, 'textbbox'):
                     left, top, right, bottom = self.draw.textbbox((0, 0), string)
-                    size = (right - left, bottom - top)
+                    size = (right - left, bottom)
                 else:
                     size = self.draw.textsize(string)
                 image = Image.new('RGBA', size)
@@ -331,7 +331,7 @@ class ImageDrawExBase(base.ImageDraw):
         else:
             if hasattr(ttfont, 'getbbox'):
                 left, top, right, bottom = ttfont.getbbox(string)
-                size = (right - left, bottom - top)
+                size = (right - left, bottom)
             else:
                 size = ttfont.getsize(string)
 
